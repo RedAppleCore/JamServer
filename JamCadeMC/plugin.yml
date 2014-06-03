@@ -4,6 +4,5 @@ main: com.jam2400.jamcade.Main
 
 commands:
   hi:
-    description: Say hi!
     permission: jamcade.hi
     
