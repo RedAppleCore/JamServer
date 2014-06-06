@@ -14,11 +14,13 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin implements Listener {
-	
+
+public static Main plugin;
 	@Override
 	public void onEnable(){
 		getLogger().info("JamCade is intiated!");
 		Bukkit.getServer().getPluginManager().registerEvents(this, this);
+		startCountdown();
 	}
 	
 	@Override
@@ -27,7 +29,7 @@ public class Main extends JavaPlugin implements Listener {
 	}
 	
 	public boolean onCommmand(CommandSender sender, Command cmd, String label, String[] args) {
-		if(cmd.getName().equalsIgnoreCase("hi")){
+		if(cmd.getName().equals("test")){
 			Player player = (Player) sender;
 			player.sendMessage(ChatColor.GOLD + "Hi");
 			return true;
@@ -41,13 +43,26 @@ public class Main extends JavaPlugin implements Listener {
 	Player p = event.getPlayer();
 	Block block = event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN);
 	Material m = block.getType();
-	if(!(m == Material.GRASS)){
+	if(!(m == Material.AIR)){
 		if(!(p.isFlying() == true)){
-		block.setType(Material.STONE);	
+		block.setType(Material.CARPET);	
 	}
 	
 	}
 	
+	}
+	
+	public void startCountdown(){
+		 this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+			 int countdown = 20;
+			public void run(){
+				for(Player p : Bukkit.getOnlinePlayers()){
+					p.setLevel(countdown);
+				}
+				countdown--;
+				
+			}
+		}, 0L, 20L);
 	}
 
 }
