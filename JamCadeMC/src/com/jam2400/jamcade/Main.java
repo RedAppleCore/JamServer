@@ -1,26 +1,24 @@
 package com.jam2400.jamcade;
 
+import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin implements Listener {
+import com.jam2400.jamcade.listeners.MainListener;
+import static com.jam2400.jamcade.Strings.*;
 
+public class Main extends JavaPlugin implements Listener {
+	
 public static Main plugin;
 	@Override
 	public void onEnable(){
 		getLogger().info("JamCade is intiated!");
-		Bukkit.getServer().getPluginManager().registerEvents(this, this);
-		startCountdown();
 	}
 	
 	@Override
@@ -28,43 +26,53 @@ public static Main plugin;
 		getLogger().info("JamCade disabled.");
 	}
 	
-	public boolean onCommmand(CommandSender sender, Command cmd, String label, String[] args) {
-		if(cmd.getName().equals("test")){
-			Player player = (Player) sender;
-			player.sendMessage(ChatColor.GOLD + "Hi");
-			return true;
-		}
-		
-		return false;
-	}
-	
-	@EventHandler
-	public void playerMove(PlayerMoveEvent event){
-	Player p = event.getPlayer();
-	Block block = event.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN);
-	Material m = block.getType();
-	if(!(m == Material.AIR)){
-		if(!(p.isFlying() == true)){
-		block.setType(Material.CARPET);	
-	}
-	
-	}
-	
-	}
-	
-	public void startCountdown(){
-		 this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-			 int countdown = 20;
-			public void run(){
-				for(Player p : Bukkit.getOnlinePlayers()){
-					p.setLevel(countdown);
+	@SuppressWarnings("deprecation")
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if (cmd.getName().equalsIgnoreCase("basic")) { // If the player typed /basic then do the following...
+			if(args.length == 0){
+				// No player specified. Let's heal the sender!
+				// Wait! What if the console sent this...? Can't do that nooooo...
+				if(!(sender instanceof Player)){
+					sender.sendMessage(playerOnly);
+				} else {
+					Player p = (Player) sender;
+					p.sendMessage(success + "The command was a success!");
 				}
-				countdown--;
-				
+			} else if(args.length == 1){
+				// AHA! A player was specified. Let's heal them!
+				// The console can do this anyway. It's not healing themselves
+				Player target = Bukkit.getPlayer(args[0]);
+				Player p = (Player) sender;
+				if(target == null){
+				// This means the target is invalid, or not online.
+				p.sendMessage(error + "This target is either online, or invalid.");
+				} else {
+					p.sendMessage(success + "Healed the player!");
+					target.setHealth(20);
+					target.setFoodLevel(20);
+					String healer = p.getName();
+					target.sendMessage(tag + "You were healed by " + healer + ", be sure to thank them!");
+				}
 			}
-		}, 0L, 20L);
-	}
+			
+			return true; //If this has happened the function will return true. 
+	        // If this hasn't happened the value of false will be returned.
+		}
+		else if(cmd.getName().equalsIgnoreCase("heal")) {	
+			if(!(sender instanceof Player)){
+				sender.sendMessage(error + playerOnly);
+			} else {
+				Player p = (Player) sender;
+				p.setHealth(20);
+				p.setFoodLevel(20);
+				p.sendMessage(success + "Successfully healed you!");
+				return true;
+			}
 
+	}
+		return false; 
+	}
 }
+	
 
 
