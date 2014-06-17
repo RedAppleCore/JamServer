@@ -59,11 +59,32 @@ public static Main plugin;
 				}
 			}
 			
-			return true; //If this has happened the function will return true. 
-	        // If this hasn't happened the value of false will be returned.
+			return true; 
+		}
+		else if (cmd.getName().equalsIgnoreCase("announce")){
+			Player p = (Player) sender;
+			if(args.length == 0){
+				p.sendMessage(error + "Specify a message to announce.");
+			} else if (args.length < 1){
+				return false;
+			} else {
+				StringBuilder message = new StringBuilder("");
+			    for (String part : args) {
+			        if (!message.toString().equals(""))
+			            message.append(" ");
+			 
+			        message.append(part);
+			    }
+			    announce(message.toString());
+			}
+			return true;
 		}
 
 		return false; 
+	}
+	
+	public void announce(String message){
+		Bukkit.broadcastMessage(tag + message);
 	}
 }
 
