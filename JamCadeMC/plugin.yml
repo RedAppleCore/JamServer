@@ -3,12 +3,6 @@ version: 1.0
 main: com.jam2400.jamcade.Main
 
 commands:
-   basic:
-      description: This is a demo command.
-      usage: /<command>
-      permission: <plugin name>.basic
-      permission-message: You don't have <permission>
-      
    heal:
       description: Heal yourself, specify a player if need be.
       usage: /<command> [player]

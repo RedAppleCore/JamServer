@@ -28,7 +28,7 @@ public static Main plugin;
 	
 	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (cmd.getName().equalsIgnoreCase("basic")) { // If the player typed /basic then do the following...
+		if (cmd.getName().equalsIgnoreCase("heal")) { // If the player typed /basic then do the following...
 			if(args.length == 0){
 				// No player specified. Let's heal the sender!
 				// Wait! What if the console sent this...? Can't do that nooooo...
@@ -36,7 +36,9 @@ public static Main plugin;
 					sender.sendMessage(playerOnly);
 				} else {
 					Player p = (Player) sender;
-					p.sendMessage(success + "The command was a success!");
+					p.setHealth(20);
+					p.setFoodLevel(20);
+					p.sendMessage(success + "Healed you!");
 				}
 			} else if(args.length == 1){
 				// AHA! A player was specified. Let's heal them!
@@ -51,28 +53,20 @@ public static Main plugin;
 					target.setHealth(20);
 					target.setFoodLevel(20);
 					String healer = p.getName();
-					target.sendMessage(tag + "You were healed by " + healer + ", be sure to thank them!");
+					target.sendMessage(tag + "You were healed by " + ChatColor.GREEN 
+							+ healer + ChatColor.GRAY 
+							+ ", be sure to thank them!");
 				}
 			}
 			
 			return true; //If this has happened the function will return true. 
 	        // If this hasn't happened the value of false will be returned.
 		}
-		else if(cmd.getName().equalsIgnoreCase("heal")) {	
-			if(!(sender instanceof Player)){
-				sender.sendMessage(error + playerOnly);
-			} else {
-				Player p = (Player) sender;
-				p.setHealth(20);
-				p.setFoodLevel(20);
-				p.sendMessage(success + "Successfully healed you!");
-				return true;
-			}
 
-	}
 		return false; 
 	}
 }
+
 	
 
 
