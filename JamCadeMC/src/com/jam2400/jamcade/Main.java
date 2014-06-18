@@ -36,8 +36,7 @@ public static Main plugin;
 					sender.sendMessage(playerOnly);
 				} else {
 					Player p = (Player) sender;
-					p.setHealth(20);
-					p.setFoodLevel(20);
+					heal(p);
 					p.sendMessage(success + "Healed you!");
 				}
 			} else if(args.length == 1){
@@ -50,8 +49,7 @@ public static Main plugin;
 				p.sendMessage(error + "This target is either online, or invalid.");
 				} else {
 					p.sendMessage(success + "Healed the player!");
-					target.setHealth(20);
-					target.setFoodLevel(20);
+					heal(target);
 					String healer = p.getName();
 					target.sendMessage(tag + "You were healed by " + ChatColor.GREEN 
 							+ healer + ChatColor.GRAY 
@@ -79,12 +77,37 @@ public static Main plugin;
 			}
 			return true;
 		}
+		else if (cmd.getName().equalsIgnoreCase("warn")){
+			Player p = (Player) sender;
+			if(args.length == 0){
+				// this means no player has been specified...
+				p.sendMessage(error + "You have to specify a player to send.");
+			} else if(args.length == 1) {
+				p.sendMessage(error + "Give a reason...");
+			}
+			else if (args.length == 2){
+				if(Bukkit.getPlayer(args[0]) == null){
+					p.sendMessage(error + "There has been an error, or this player is offline.");
+				} else {
+					Player target = Bukkit.getPlayer(args[0]);
+					warn(target, args[1]);
+				}
+			}
+			return true;
+		} 
 
 		return false; 
 	}
 	
 	public void announce(String message){
 		Bukkit.broadcastMessage(tag + message);
+	}
+	public void warn(Player p, String reason){
+		p.sendMessage(tag + "You were warned for '" + ChatColor.GOLD + reason + ChatColor.GRAY + "' - continuing will result in a ban!");
+	}
+	public void heal(Player p){
+		p.setHealth(20);
+		p.setFoodLevel(20);
 	}
 }
 

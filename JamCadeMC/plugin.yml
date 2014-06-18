@@ -11,3 +11,7 @@ commands:
       description: Announce a message to the server.
       usage: /<command> [message]
       permission: jamcade.announce
+   warn:
+      description: Warn a player.
+      usage: /<command> [player] [reason]
+      permission: jamcade.warn
