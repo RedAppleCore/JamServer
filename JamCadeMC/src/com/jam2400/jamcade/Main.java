@@ -7,10 +7,14 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.jam2400.jamcade.listeners.MainListener;
 import static com.jam2400.jamcade.Strings.*;
 
 public class Main extends JavaPlugin implements Listener {
@@ -18,7 +22,9 @@ public class Main extends JavaPlugin implements Listener {
 public static Main plugin;
 	@Override
 	public void onEnable(){
-		getLogger().info("JamCade is intiated!");
+		getLogger().info(success + "JamCade is intiated!");
+		PluginManager pm = Bukkit.getServer().getPluginManager();
+		pm.registerEvents(this, this);
 	}
 	
 	@Override
@@ -26,6 +32,7 @@ public static Main plugin;
 		getLogger().info("JamCade disabled.");
 	}
 	
+	// Commands
 	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("heal")) { // If the player typed /basic then do the following...
@@ -106,9 +113,22 @@ public static Main plugin;
 		p.sendMessage(tag + "You were warned for '" + ChatColor.GOLD + reason + ChatColor.GRAY + "' - continuing will result in a ban!");
 	}
 	public void heal(Player p){
-		p.setHealth(20);
+		p.setHealth(20D);
 		p.setFoodLevel(20);
 	}
+	
+	public void kick(Player p, String reason){
+		p.kickPlayer(reason);
+		announce(p + "was kicked from the server for " + reason);
+	}
+	
+	@EventHandler
+	public void onJoin(PlayerJoinEvent e){
+		Player p = e.getPlayer();
+		p.sendMessage(welcome);
+	}
+	
+	
 }
 
 	
