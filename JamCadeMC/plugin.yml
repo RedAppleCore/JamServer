@@ -15,3 +15,10 @@ commands:
       description: Warn a player.
       usage: /<command> [player] [reason]
       permission: jamcade.warn
+   kick:
+      description: Kick a player.
+      usage: /<command> [player] [reason]
+      permission: jamcade.kick
+   m:
+      description: Message a player.
+      usage: /<command> [player] [message]

@@ -18,5 +18,7 @@ public class Strings  {
 	public static final String success = (GRAY + "[" + GREEN + BOLD + "O" + RESET + GRAY + "] ");
 	
 	public static final String playerOnly = ("Only a player can perform this command. Dum Dum");
+	
+	public static final String welcome = (tag + "Welcome to JamCade");
 
 }
