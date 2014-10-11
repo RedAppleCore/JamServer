@@ -1,35 +1,38 @@
 package com.jam2400.jamcade;
 
-import java.io.IOException;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerLoginEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.jam2400.jamcade.listeners.MainListener;
+
 import static com.jam2400.jamcade.Strings.*;
 
-public class Main extends JavaPlugin implements Listener {
+public class Main extends JavaPlugin {
 	
 public static Main plugin;
 	@Override
 	public void onEnable(){
 		getLogger().info(success + "JamCade is intiated!");
+		plugin = this;
 		PluginManager pm = Bukkit.getServer().getPluginManager();
-		pm.registerEvents(this, this);
+		pm.registerEvents(new MainListener(), this);
 	}
 	
 	@Override
 	public void onDisable(){
 		getLogger().info("JamCade disabled.");
+		plugin = null;
+	}
+	public static Plugin getPlugin(){
+		return plugin;
 	}
 	
 	// Commands
