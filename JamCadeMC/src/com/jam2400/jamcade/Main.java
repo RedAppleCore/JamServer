@@ -149,29 +149,22 @@ public static Main plugin;
 		return false; 
 	}
 	
-	public void announce(String message){
+	public static void announce(String message){
 		Bukkit.broadcastMessage(tag + message);
 	}
-	public void warn(Player p, String reason){
+	public static void warn(Player p, String reason){
 		p.sendMessage(tag + "You were warned for '" + ChatColor.GOLD + reason + ChatColor.GRAY + "' - continuing will result in a ban!");
 	}
-	public void heal(Player p){
+	public static void heal(Player p){
 		p.setHealth(20D);
 		p.setFoodLevel(20);
 	}
 	
-	public void kick(Player p, String reason){
+	public static void kick(Player p, String reason){
 		p.kickPlayer("Kicked for " + reason);
 		announce(p + "was kicked from the server for " + reason);
 	}
-	
-	@EventHandler
-	public void onJoin(PlayerJoinEvent e){
-		Player p = e.getPlayer();
-		p.sendMessage(welcome);
-	}
-	
-	
+
 }
 
 	
