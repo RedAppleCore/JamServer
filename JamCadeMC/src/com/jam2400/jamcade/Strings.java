@@ -20,5 +20,14 @@ public class Strings  {
 	public static final String playerOnly = ("Only a player can perform this command. Dum Dum");
 	
 	public static final String welcome = (tag + "Welcome to JamCade");
+	
+	public static String error (String message){
+		String response = error + message;
+		return response;
+	}
+	public static String success (String message){
+		String response = error + success;
+		return response;
+	}
 
 }

@@ -9,7 +9,9 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+
 import com.jam2400.jamcade.listeners.MainListener;
+import com.jam2400.jamcade.utils.ChatUtils;
 
 import static com.jam2400.jamcade.Strings.*;
 
@@ -45,7 +47,7 @@ public static Main plugin;
 				} else {
 					Player p = (Player) sender;
 					heal(p);
-					p.sendMessage(success + "Healed you!");
+					p.sendMessage(success("Healed you!"));
 				}
 			} else if(args.length == 1){
 				// AHA! A player was specified. Let's heal them!
@@ -54,9 +56,9 @@ public static Main plugin;
 				Player p = (Player) sender;
 				if(target == null){
 				// This means the target is invalid, or not online.
-				p.sendMessage(error + "This target is either offline, or invalid.");
+				p.sendMessage(error("This target is either offline, or invalid."));
 				} else {
-					p.sendMessage(success + "Healed the player!");
+					p.sendMessage(success("Healed the player!"));
 					heal(target);
 					String healer = p.getName();
 					target.sendMessage(tag + "You were healed by " + ChatColor.GREEN 
@@ -70,7 +72,7 @@ public static Main plugin;
 		else if (cmd.getName().equalsIgnoreCase("announce")){
 			Player p = (Player) sender;
 			if(args.length == 0){
-				p.sendMessage(error + "Specify a message to announce.");
+				p.sendMessage(error("Specify a message to announce."));
 			} else if (args.length < 1){
 				return false;
 			} else {
@@ -81,7 +83,7 @@ public static Main plugin;
 			 
 			        message.append(part);
 			    }
-			    announce(message.toString());
+			    ChatUtils.announce(message.toString());
 			}
 			return true;
 		}
@@ -89,13 +91,13 @@ public static Main plugin;
 			Player p = (Player) sender;
 			if(args.length == 0){
 				// this means no player has been specified...
-				p.sendMessage(error + "You have to specify a player to send.");
+				p.sendMessage(error("You have to specify a player to send."));
 			} else if(args.length == 1) {
-				p.sendMessage(error + "Give a reason...");
+				p.sendMessage(error("Give a reason..."));
 			}
 			else if (args.length == 2){
 				if(Bukkit.getPlayer(args[0]) == null){
-					p.sendMessage(error + "There has been an error, or this player is offline.");
+					p.sendMessage(error("There has been an error, or this player is offline."));
 				} else {
 					Player target = Bukkit.getPlayer(args[0]);
 					warn(target, args[1]);
@@ -106,9 +108,9 @@ public static Main plugin;
 		else if (cmd.getName().equalsIgnoreCase("kick")){
 			Player p = (Player) sender;
 			if(args.length == 0){
-				p.sendMessage(error + "You have to specify a player to send.");
+				p.sendMessage(error("You have to specify a player to send."));
 			} else if(args.length == 1){
-				p.sendMessage(error + "Give a reason...");
+				p.sendMessage(error("Give a reason..."));
 			} else {
 				Player target = Bukkit.getPlayer(args[0]);
 				kick(target, args[1]);
@@ -117,10 +119,10 @@ public static Main plugin;
 		else if (cmd.getName().equalsIgnoreCase("m")) {
 			Player player = (Player) sender;
 			if(args.length < 1) {
-				player.sendMessage(error + "You need to specify a player.");
+				player.sendMessage(error("You need to specify a player."));
 			}
 			else if(args.length < 2) {
-				player.sendMessage(error + "You need a message to send to " + args[0]);
+				player.sendMessage(error("You need a message to send to " + args[0]));
 			}
 			else {
 				Player target = Bukkit.getPlayer(args[0]);
@@ -140,15 +142,11 @@ public static Main plugin;
 				target.sendMessage(ChatColor.DARK_GRAY + "[" + sender.getName() + " says] " + ChatColor.GREEN + sb.toString());
 				}
 				else {
-				player.sendMessage(error + "This player is not online!");	
+				player.sendMessage(error("This player is not online!"));	
 				}
 			}
 		}
 		return false; 
-	}
-	
-	public static void announce(String message){
-		Bukkit.broadcastMessage(tag + message);
 	}
 	public static void warn(Player p, String reason){
 		p.sendMessage(tag + "You were warned for '" + ChatColor.GOLD + reason + ChatColor.GRAY + "' - continuing will result in a ban!");
@@ -160,7 +158,7 @@ public static Main plugin;
 	
 	public static void kick(Player p, String reason){
 		p.kickPlayer("Kicked for " + reason);
-		announce(p + "was kicked from the server for " + reason);
+		ChatUtils.announce(p + "was kicked from the server for " + reason);
 	}
 
 }
