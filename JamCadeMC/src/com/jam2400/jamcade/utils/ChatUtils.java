@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import com.jam2400.jamcade.Main;
+import com.jam2400.jamcade.Strings;
 
 
 public class ChatUtils {
@@ -20,6 +21,11 @@ public class ChatUtils {
 	public static void GlobalMsg(String message){
 		for (Player p : Bukkit.getServer().getOnlinePlayers()){
 			p.sendMessage(message);
+		}
+	}
+	public void staffMsg(String msg){
+		for (Player p : MainUtils.getOnlineStaff()){
+			p.sendMessage(Strings.staff + msg);
 		}
 	}
 }

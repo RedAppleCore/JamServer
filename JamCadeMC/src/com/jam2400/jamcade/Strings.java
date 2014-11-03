@@ -21,6 +21,8 @@ public class Strings  {
 	
 	public static final String welcome = (tag + "Welcome to JamCade");
 	
+	public static final String staff = (tag + GRAY + "[" + YELLOW + "Staff" + GRAY + "] " + GREEN);
+	
 	public static String error (String message){
 		String response = error + message;
 		return response;

@@ -1,10 +1,17 @@
 package com.jam2400.jamcade;
 
+import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Horse.Variant;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -12,6 +19,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.jam2400.jamcade.listeners.MainListener;
 import com.jam2400.jamcade.utils.ChatUtils;
+import com.jam2400.jamcade.utils.MainUtils;
 
 import static com.jam2400.jamcade.Strings.*;
 
@@ -145,7 +153,31 @@ public static Main plugin;
 				player.sendMessage(error("This player is not online!"));	
 				}
 			}
+			return true;
 		}
+		else if (cmd.getName().equalsIgnoreCase("staff")){
+			if (MainUtils.getOnlineStaff().size() == 0){
+				sender.sendMessage(error("There are no staff currently online."));
+			} else {
+			sender.sendMessage(ChatColor.GRAY + "The following staff are online.");
+			for (Player p : MainUtils.getOnlineStaff()){
+				sender.sendMessage(" - " + MainUtils.getDisplayName(p));
+			}
+			}
+			
+			return true;
+		}
+		else if (cmd.getName().equalsIgnoreCase("horsify")){
+			Player p = (Player) sender;
+			Location loc = p.getLocation();
+			Horse horse = (Horse) loc.getWorld().spawnEntity(loc, EntityType.HORSE);
+			horse.setTamed(true);
+			horse.setOwner(p);
+			horse.setVariant(Variant.UNDEAD_HORSE);
+			horse.setPassenger(p);
+			
+			
+		} 
 		return false; 
 	}
 	public static void warn(Player p, String reason){

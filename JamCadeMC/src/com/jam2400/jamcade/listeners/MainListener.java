@@ -27,7 +27,7 @@ public class MainListener implements Listener {
 		p.sendMessage(Strings.tag + "Welcome!");
 		
 		e.setJoinMessage(null);
-		ChatUtils.announce(name + " joined.");
+		ChatUtils.announce(MainUtils.getDisplayName(p) + ChatColor.RED +  " joined.");
 		
 		if (p.isOp()){
 			p.setGameMode(GameMode.CREATIVE);
@@ -41,7 +41,7 @@ public class MainListener implements Listener {
 		Player p = e.getPlayer();
 		String name = p.getName();
 		e.setQuitMessage(null);
-		ChatUtils.announce(name + ChatColor.RED + " left.");
+		ChatUtils.announce(MainUtils.getDisplayName(p) + ChatColor.RED + " left.");
 	}
 	
 	@EventHandler
