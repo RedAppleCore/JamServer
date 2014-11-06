@@ -191,6 +191,7 @@ public static Main plugin;
 					sc.add(p);
 					p.sendMessage(success("Enabled staff chat notifications."));
 				}
+				return true;
 			} else {
 			StringBuilder message = new StringBuilder("");
 		    for (String part : args) {

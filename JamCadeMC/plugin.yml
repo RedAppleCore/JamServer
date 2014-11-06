@@ -27,5 +27,9 @@ commands:
       usage: /<command>
    horsify:
       description: Put yourself on a horse.
-      usgae: /<command>
+      usage: /<command>
       permission: jamcade.horsify
+   s:
+      description: Toggle yourself from receiving notifications, or send a message.
+      usage: /<command> <message>
+      permission: jamcade.staffmessage
