@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 
 import com.jam2400.jamcade.Main;
 import com.jam2400.jamcade.Strings;
-import com.jam2400.jamcade.ranks.Rank;
 
 
 public class ChatUtils {
@@ -26,7 +25,7 @@ public class ChatUtils {
 	}
 	public static void staffMsg(String msg, Player sender){
 		for (Player p : MainUtils.getOnlineStaff()){
-			String name = MainUtils.getDisplayName(sender);
+			String name = PlayerUtils.getDisplayName(sender);
 			String finalMsg = Strings.staff + name + " > " + msg;
 			p.sendMessage(finalMsg);
 			Bukkit.getServer().getLogger().info(finalMsg);

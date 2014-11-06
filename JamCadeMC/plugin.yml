@@ -19,6 +19,13 @@ commands:
       description: Kick a player.
       usage: /<command> [player] [reason]
       permission: jamcade.kick
-   m:
+   msg:
       description: Message a player.
       usage: /<command> [player] [message]
+   staff:
+      description: Gives a list of online staff members.
+      usage: /<command>
+   horsify:
+      description: Put yourself on a horse.
+      usgae: /<command>
+      permission: jamcade.horsify

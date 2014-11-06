@@ -1,13 +1,10 @@
 package com.jam2400.jamcade;
 
-import java.util.List;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
@@ -17,9 +14,11 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
+import com.jam2400.jamcade.listeners.ChatListener;
 import com.jam2400.jamcade.listeners.MainListener;
 import com.jam2400.jamcade.utils.ChatUtils;
 import com.jam2400.jamcade.utils.MainUtils;
+import com.jam2400.jamcade.utils.PlayerUtils;
 
 import static com.jam2400.jamcade.Strings.*;
 
@@ -32,6 +31,7 @@ public static Main plugin;
 		plugin = this;
 		PluginManager pm = Bukkit.getServer().getPluginManager();
 		pm.registerEvents(new MainListener(), this);
+		pm.registerEvents(new ChatListener(), this);
 	}
 	
 	@Override
@@ -161,7 +161,7 @@ public static Main plugin;
 			} else {
 			sender.sendMessage(ChatColor.GRAY + "The following staff are online.");
 			for (Player p : MainUtils.getOnlineStaff()){
-				sender.sendMessage(" - " + MainUtils.getDisplayName(p));
+				sender.sendMessage(" - " + PlayerUtils.getDisplayName(p));
 			}
 			}
 			
