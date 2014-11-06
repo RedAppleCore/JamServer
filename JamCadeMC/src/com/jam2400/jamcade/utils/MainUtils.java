@@ -16,4 +16,9 @@ public class MainUtils {
 		}
 		return staff;
 	}
+	
+	public static ArrayList<Player> getStaffChatMembers(){
+		ArrayList<Player> staffchatmembers = new ArrayList<Player>();
+		return staffchatmembers;
+	}
 }

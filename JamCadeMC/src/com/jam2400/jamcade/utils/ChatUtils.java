@@ -24,7 +24,7 @@ public class ChatUtils {
 		}
 	}
 	public static void staffMsg(String msg, Player sender){
-		for (Player p : MainUtils.getOnlineStaff()){
+		for (Player p : MainUtils.getStaffChatMembers()){
 			String name = PlayerUtils.getDisplayName(sender);
 			String finalMsg = Strings.staff + name + " > " + msg;
 			p.sendMessage(finalMsg);

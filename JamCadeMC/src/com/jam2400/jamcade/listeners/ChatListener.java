@@ -1,5 +1,7 @@
 package com.jam2400.jamcade.listeners;
 
+import java.util.ArrayList;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,6 +13,7 @@ import com.jam2400.jamcade.ranks.Rank;
 import com.jam2400.jamcade.utils.PlayerUtils;
 
 public class ChatListener implements Listener{
+	
 	@EventHandler
 	public void PlayerChatEvent(AsyncPlayerChatEvent e){
 		Player p = e.getPlayer();

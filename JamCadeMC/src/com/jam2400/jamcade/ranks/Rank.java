@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 	public enum Rank {
 		owner(ChatColor.YELLOW, "jamcade.owner", ChatColor.GREEN),
 		admin(ChatColor.RED, "jamcade.admin", ChatColor.WHITE),
-		member(ChatColor.GREEN, "jamcade.member", ChatColor.WHITE),
+		member(ChatColor.DARK_GREEN, "jamcade.member", ChatColor.WHITE),
 		guest(ChatColor.GRAY, "jamcade.guest", ChatColor.GRAY);
 		
 		private final ChatColor color;

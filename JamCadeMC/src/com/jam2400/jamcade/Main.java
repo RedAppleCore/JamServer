@@ -1,5 +1,7 @@
 package com.jam2400.jamcade;
 
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -176,8 +178,32 @@ public static Main plugin;
 			horse.setVariant(Variant.UNDEAD_HORSE);
 			horse.setPassenger(p);
 			
-			
-		} 
+			return true;
+		}
+		else if (cmd.getName().equalsIgnoreCase("s")){
+			Player p = (Player) sender;
+			if (args.length == 0){
+				ArrayList<Player> sc = MainUtils.getStaffChatMembers();
+				if (sc.contains(p)) {
+					sc.remove(p);
+					p.sendMessage(success("Disabled staff chat notifications."));
+				} else {
+					sc.add(p);
+					p.sendMessage(success("Enabled staff chat notifications."));
+				}
+			} else {
+			StringBuilder message = new StringBuilder("");
+		    for (String part : args) {
+		        if (!message.toString().equals(""))
+		            message.append(" ");
+		 
+		        message.append(part);
+		    }   
+		    String msg = message.toString();
+			ChatUtils.staffMsg(msg, p);
+			return true;
+			}
+		}
 		return false; 
 	}
 	public static void warn(Player p, String reason){
