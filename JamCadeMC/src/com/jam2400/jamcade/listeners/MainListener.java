@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 
 import com.jam2400.jamcade.Strings;
-import com.jam2400.jamcade.ranks.RankType;
+import com.jam2400.jamcade.ranks.Rank;
 import com.jam2400.jamcade.utils.ChatUtils;
 import com.jam2400.jamcade.utils.MainUtils;
 
@@ -47,7 +47,7 @@ public class MainListener implements Listener {
 	@EventHandler
 	public void PlayerChatEvent(AsyncPlayerChatEvent e){
 		Player p = e.getPlayer();
-		ChatColor color = RankType.Rank.getRank(p).getColor();
+		ChatColor color = Rank.getRank(p).getColor();
 		String name = p.getName();
 		String msg = e.getMessage();
 		

@@ -3,8 +3,6 @@ package com.jam2400.jamcade.ranks;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-public class RankType {
-	
 	public enum Rank {
 		owner(ChatColor.YELLOW, "jamcade.owner"),
 		admin(ChatColor.RED, "jamcade.admin"),
@@ -41,5 +39,3 @@ public class RankType {
 			}
 		}
 	}
-
-}

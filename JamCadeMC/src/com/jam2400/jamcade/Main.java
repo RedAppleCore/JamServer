@@ -121,7 +121,7 @@ public static Main plugin;
 				p.sendMessage(error("Give a reason..."));
 			} else {
 				Player target = Bukkit.getPlayer(args[0]);
-				kick(target, args[1]);
+				kick(target, args[1], sender);
 			}
 		}
 		else if (cmd.getName().equalsIgnoreCase("m")) {
@@ -188,9 +188,9 @@ public static Main plugin;
 		p.setFoodLevel(20);
 	}
 	
-	public static void kick(Player p, String reason){
+	public static void kick(Player p, String reason, CommandSender sender){
 		p.kickPlayer("Kicked for " + reason);
-		ChatUtils.announce(p + "was kicked from the server for " + reason);
+		ChatUtils.staffMsg(p + "was kicked from the server for " + reason, (Player) sender);
 	}
 
 }

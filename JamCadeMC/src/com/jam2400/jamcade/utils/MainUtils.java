@@ -7,11 +7,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import com.jam2400.jamcade.Strings;
-import com.jam2400.jamcade.ranks.RankType;
+import com.jam2400.jamcade.ranks.Rank;
 
 public class MainUtils {
 	public static String getDisplayName(Player p){
-	    ChatColor color = RankType.Rank.getRank(p).getColor();
+	    ChatColor color = Rank.getRank(p).getColor();
 	    String name = p.getName();
 	    String displayName = color + name;
 	    return displayName;
