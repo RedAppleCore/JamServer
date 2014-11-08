@@ -85,6 +85,7 @@ public class MainListener implements Listener {
 		
 		if (inventory.getName().equals(CompassMenu.getWardrobeMenu().getName())){
 			p.getInventory().setChestplate(clicked);
+			e.setCancelled(true);
 		}
 		
 			
