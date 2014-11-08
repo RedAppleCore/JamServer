@@ -8,14 +8,17 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class CompassMenu {
-	public static Inventory getMenu(){
+	public static Inventory getMainMenu(){
 		Inventory menu = Bukkit.createInventory(null, 9, ChatColor.RED + "Menu:");
+		ItemStack wardrobe = new ItemStack(Material.IRON_CHESTPLATE);
+		menu.setItem(0, wardrobe);
 		return menu;
 	}
 	public static void openMenu(Player p){
-		Inventory menu = getMenu();
-		ItemStack wardrobe = new ItemStack(Material.IRON_CHESTPLATE);
-		menu.setItem(0, wardrobe);
-		p.openInventory(menu);
+		p.openInventory(getMainMenu());
+	}
+	
+	public static void openWardrobe(Player p){
+		
 	}
 }

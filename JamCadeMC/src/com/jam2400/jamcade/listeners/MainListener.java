@@ -74,7 +74,7 @@ public class MainListener implements Listener {
 		Player p = (Player) e.getWhoClicked(); // Player who clicked
 		ItemStack clicked = e.getCurrentItem(); // Item clicked
 		Inventory inventory = e.getInventory(); // Inventory clicked
-		if (inventory.getName().equals(CompassMenu.getMenu().getName())){
+		if (inventory.getName().equals(CompassMenu.getMainMenu().getName())){
 			// If the inventory clicked was the compass menu
 			if (clicked.getType() == Material.IRON_CHESTPLATE){
 				e.setCancelled(true);
