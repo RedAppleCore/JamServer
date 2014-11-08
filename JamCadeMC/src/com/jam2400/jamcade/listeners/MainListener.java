@@ -59,8 +59,9 @@ public class MainListener implements Listener {
 		// Assign information
 		wardrobe.setItemMeta(meta);
 		
-		// Give items
-		p.getInventory().addItem(wardrobe);
+		// Clear inventory and give items
+		p.getInventory().clear();
+		p.getInventory().setItem(1, wardrobe);
 	}
 	
 	@EventHandler
