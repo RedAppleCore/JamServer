@@ -1,4 +1,4 @@
-package com.jam2400.jamcade.utils;
+package com.jam2400.jamcade.api;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

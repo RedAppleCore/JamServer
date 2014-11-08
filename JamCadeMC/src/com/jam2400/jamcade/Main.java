@@ -16,11 +16,12 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
+
+import com.jam2400.jamcade.api.ChatUtils;
+import com.jam2400.jamcade.api.MainUtils;
+import com.jam2400.jamcade.api.PlayerUtils;
 import com.jam2400.jamcade.listeners.ChatListener;
 import com.jam2400.jamcade.listeners.MainListener;
-import com.jam2400.jamcade.utils.ChatUtils;
-import com.jam2400.jamcade.utils.MainUtils;
-import com.jam2400.jamcade.utils.PlayerUtils;
 
 import static com.jam2400.jamcade.Strings.*;
 

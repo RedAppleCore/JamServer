@@ -19,10 +19,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 
+
 import com.jam2400.jamcade.CompassMenu;
 import com.jam2400.jamcade.Strings;
-import com.jam2400.jamcade.utils.ChatUtils;
-import com.jam2400.jamcade.utils.PlayerUtils;
+import com.jam2400.jamcade.api.ChatUtils;
+import com.jam2400.jamcade.api.PlayerUtils;
 
 public class MainListener implements Listener {
 	

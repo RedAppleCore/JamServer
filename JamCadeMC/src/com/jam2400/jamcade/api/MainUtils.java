@@ -1,4 +1,4 @@
-package com.jam2400.jamcade.utils;
+package com.jam2400.jamcade.api;
 
 import java.util.ArrayList;
 

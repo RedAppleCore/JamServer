@@ -8,9 +8,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+
 import com.jam2400.jamcade.Strings;
+import com.jam2400.jamcade.api.PlayerUtils;
 import com.jam2400.jamcade.ranks.Rank;
-import com.jam2400.jamcade.utils.PlayerUtils;
 
 public class ChatListener implements Listener{
 	
