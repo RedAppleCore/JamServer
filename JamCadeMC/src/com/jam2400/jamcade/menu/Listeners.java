@@ -20,11 +20,20 @@ public class Listeners implements Listener{
 		
 		if (inventory.getName().equals(CosmeticMenu.getCosmeticMenu().getName())){
 			if (clicked.getType() == Material.PUMPKIN){
-				// TODO Create hat menu
+				HatMenu.openMenu(p);
+				e.setCancelled(true);
+			} else if (clicked.getType() == Material.IRON_CHESTPLATE){
+				WardrobeMenu.openWardrobe(p);
+				e.setCancelled(true);
 			}
 		}
-		if (inventory.getName().equals(WardrobeMenu.getWardrobeMenu().getName())){
+		else if (inventory.getName().equals(WardrobeMenu.getWardrobeMenu().getName())){
 			p.getInventory().setChestplate(clicked);
+			e.setCancelled(true);
+			p.closeInventory();
+		}
+		else if (inventory.getName().equals(HatMenu.getHatMenu().getName())){
+			p.getInventory().setHelmet(clicked);
 			e.setCancelled(true);
 			p.closeInventory();
 		}
@@ -38,7 +47,7 @@ public class Listeners implements Listener{
 		if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)
 			if(p.getItemInHand().getType() == Material.IRON_CHESTPLATE){
 				WardrobeMenu.openWardrobe(p);
-			} else if(p.getItemInHand().getType() == Material.PUMPKIN){
+			} else if(p.getItemInHand().getType() == Material.PISTON_BASE){
 				CosmeticMenu.openMenu(p);
 			}
 	}

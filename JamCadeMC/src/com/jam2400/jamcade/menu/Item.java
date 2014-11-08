@@ -14,8 +14,11 @@ public enum Item {
 	// Main Cosmetics Menu
 	hats(ChatColor.GREEN + "Hats!", Material.PUMPKIN),
 	wardrobe(ChatColor.DARK_RED + "Wardrobe!", Material.IRON_CHESTPLATE),
+	back(ChatColor.BLUE + "Go back!", Material.ARROW),
 	// Hats
-	tnt(ChatColor.RED + "TNT!", Material.TNT);
+	tnt(ChatColor.RED + "TNT!", Material.TNT),
+	melon(ChatColor.DARK_GREEN + "MELONE!", Material.MELON_BLOCK),
+	anvil(ChatColor.DARK_GRAY + "Anvil", Material.ANVIL);
 	
 	
 	private final String displayName;

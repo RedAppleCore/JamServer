@@ -10,6 +10,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
+import org.bukkit.util.Vector;
 
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
@@ -72,6 +74,18 @@ public class PlayerListener implements Listener{
 		if (PlayerUtils.canBuild(p) == false){
 			e.setCancelled(true);
 		}
+	}
+	
+	@EventHandler
+	public void onFlightAttempt(PlayerToggleFlightEvent event) {
+	 
+	    if(!event.isFlying() && event.getPlayer().getGameMode() != GameMode.CREATIVE) {
+	 
+	        event.getPlayer().setVelocity(event.getPlayer().getVelocity().add(new Vector(0,0.25,0)));
+	        event.setCancelled(true);
+	 
+	    }
+	 
 	}
 	
 }
