@@ -48,7 +48,11 @@ public class MainListener implements Listener {
 		
 		// Clear inventory and give items
 		p.getInventory().clear();
-		p.getInventory().setItem(1, Wardrobe.getItem());
+		
+		if (PlayerUtils.hasWardrobe(p)){
+			// Only if they can use the wardrobe shall we give them the item...
+			p.getInventory().setItem(1, Wardrobe.getItem());
+		}
 		p.getInventory().setItem(4, Menu.getItem());
 	}
 	

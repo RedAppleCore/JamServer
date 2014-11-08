@@ -20,4 +20,8 @@ public class PlayerUtils {
 		if (p.hasPermission("jamcade.chat")){return true;}
 		else {return false;}
 	}
+	public static boolean hasWardrobe(Player p){
+		if (p.hasPermission("jamcade.wardrobe")){return true;}
+		else {return false;}
+	}
 }
