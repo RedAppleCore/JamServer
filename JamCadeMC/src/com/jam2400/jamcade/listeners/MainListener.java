@@ -24,6 +24,8 @@ import com.jam2400.jamcade.CompassMenu;
 import com.jam2400.jamcade.Strings;
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
+import com.jam2400.jamcade.items.Menu;
+import com.jam2400.jamcade.items.Wardrobe;
 
 public class MainListener implements Listener {
 	
@@ -48,30 +50,10 @@ public class MainListener implements Listener {
 			p.setGameMode(GameMode.ADVENTURE);
 		}
 		
-		// Give items
-		
-		// Items (will eventually put in seperate class
-		
-		// WARDROBE!
-		ItemStack wardrobe = new ItemStack(Material.IRON_CHESTPLATE);
-		// Set information
-		ItemMeta wardrobemeta = wardrobe.getItemMeta();
-		wardrobemeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Wardrobe");
-		// Assign information
-		wardrobe.setItemMeta(wardrobemeta);
-		
-		// MAIN MENU!
-		ItemStack menu = new ItemStack(Material.NETHER_STAR);
-		//Set info
-		ItemMeta menumeta = menu.getItemMeta();
-		menumeta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Server Selector");
-		// Assign
-		menu.setItemMeta(menumeta);
-		
 		// Clear inventory and give items
 		p.getInventory().clear();
-		p.getInventory().setItem(1, wardrobe);
-		p.getInventory().setItem(4, menu);
+		p.getInventory().setItem(1, Wardrobe.getItem());
+		p.getInventory().setItem(4, Menu.getItem());
 	}
 	
 	@EventHandler
