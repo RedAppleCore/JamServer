@@ -3,27 +3,20 @@ package com.jam2400.jamcade.listeners;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
+
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
 import com.jam2400.jamcade.items.Menu;
 import com.jam2400.jamcade.items.Wardrobe;
-import com.jam2400.jamcade.menu.CompassMenu;
 
-public class MainListener implements Listener {
-	
+public class PlayerListener implements Listener{
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e){
 		// Spawn location
