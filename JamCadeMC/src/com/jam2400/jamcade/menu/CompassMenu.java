@@ -2,10 +2,8 @@ package com.jam2400.jamcade.menu;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 public class CompassMenu {
 	
@@ -14,9 +12,10 @@ public class CompassMenu {
 		Inventory wardrobe = Bukkit.createInventory(null, 45, ChatColor.GREEN + "Wardrobe:");
 		
 		// Set items in the wardrobe
-		wardrobe.setItem(10, Item.goldChest.getItem());
-		wardrobe.setItem(11, Item.ironChest.getItem());
-		wardrobe.setItem(12, Item.diamondChest.getItem());
+		wardrobe.setItem(10, Item.leatherChest.getItem());
+		wardrobe.setItem(11, Item.goldChest.getItem());
+		wardrobe.setItem(12, Item.ironChest.getItem());
+		wardrobe.setItem(13, Item.diamondChest.getItem());
 		return wardrobe;
 	}
 	

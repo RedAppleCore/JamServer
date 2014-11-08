@@ -6,9 +6,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public enum Item {
+	leatherChest(ChatColor.WHITE + "Leather Chestplate", Material.LEATHER_CHESTPLATE),
 	goldChest(ChatColor.GOLD + "Golden Chestplate", Material.GOLD_CHESTPLATE),
-	ironChest(ChatColor.WHITE + "Iron Chestplate", Material.IRON_CHESTPLATE),
-	diamondChest(ChatColor.BLUE + "Diamond Chestplate", Material.DIAMOND_CHESTPLATE);
+	ironChest(ChatColor.GRAY + "Iron Chestplate", Material.IRON_CHESTPLATE),
+	diamondChest(ChatColor.AQUA + "Diamond Chestplate", Material.DIAMOND_CHESTPLATE);
 	
 	private final String displayName;
 	private final Material material;
