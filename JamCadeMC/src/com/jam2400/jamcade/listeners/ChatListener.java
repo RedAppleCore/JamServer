@@ -1,7 +1,5 @@
 package com.jam2400.jamcade.listeners;
 
-import java.util.ArrayList;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
