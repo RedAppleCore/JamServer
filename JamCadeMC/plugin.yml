@@ -1,5 +1,5 @@
 name: JamCade
-version: 1.0
+version: 1.5
 main: com.jam2400.jamcade.Main
 
 commands:
