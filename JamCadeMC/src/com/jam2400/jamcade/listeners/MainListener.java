@@ -20,12 +20,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 
 
-import com.jam2400.jamcade.CompassMenu;
 import com.jam2400.jamcade.Strings;
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
 import com.jam2400.jamcade.items.Menu;
 import com.jam2400.jamcade.items.Wardrobe;
+import com.jam2400.jamcade.menu.CompassMenu;
 
 public class MainListener implements Listener {
 	
@@ -87,23 +87,14 @@ public class MainListener implements Listener {
 		Player p = (Player) e.getWhoClicked(); // Player who clicked
 		ItemStack clicked = e.getCurrentItem(); // Item clicked
 		Inventory inventory = e.getInventory(); // Inventory clicked
-		if (inventory.getName().equals(CompassMenu.getMainMenu().getName())){
-			// If the inventory clicked was the main compass menu
-			if (clicked.getType() == Material.IRON_CHESTPLATE){
-				Inventory wardrobe = CompassMenu.getWardrobeMenu();
-				p.openInventory(wardrobe);
-				e.setCancelled(true); // Make sure chestplate stays
-			}
-		}
 		
 		if (inventory.getName().equals(CompassMenu.getWardrobeMenu().getName())){
 			p.getInventory().setChestplate(clicked);
 			e.setCancelled(true);
 			p.closeInventory();
 		}
-		
-			
 	}
+			
 	
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e){
