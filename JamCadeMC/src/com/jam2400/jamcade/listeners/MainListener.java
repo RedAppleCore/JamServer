@@ -16,7 +16,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import com.jam2400.jamcade.Strings;
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
 import com.jam2400.jamcade.items.Menu;
@@ -32,7 +31,6 @@ public class MainListener implements Listener {
 		
 		// When the user logs in...
 		Player p = e.getPlayer();
-		p.sendMessage(Strings.tag + "Welcome!");
 		
 		// Join messages...
 		e.setJoinMessage(null);
