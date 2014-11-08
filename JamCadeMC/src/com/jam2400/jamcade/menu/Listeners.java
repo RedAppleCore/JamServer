@@ -33,9 +33,13 @@ public class Listeners implements Listener{
 			p.closeInventory();
 		}
 		else if (inventory.getName().equals(HatMenu.getHatMenu().getName())){
+			if (clicked.getType() == Material.ARROW){
+				CosmeticMenu.openMenu(p);
+			} else {
 			p.getInventory().setHelmet(clicked);
 			e.setCancelled(true);
 			p.closeInventory();
+			}
 		}
 	}
 			
