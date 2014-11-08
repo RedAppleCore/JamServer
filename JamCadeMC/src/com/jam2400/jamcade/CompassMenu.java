@@ -14,6 +14,13 @@ public class CompassMenu {
 		menu.setItem(0, wardrobe);
 		return menu;
 	}
+	
+	public static Inventory getWardrobeMenu(){
+		Inventory wardrobe = Bukkit.createInventory(null, 40, ChatColor.GREEN + "Wardrobe:");
+		ItemStack goldChestPlate = new ItemStack(Material.GOLD_CHESTPLATE);
+		wardrobe.setItem(0, goldChestPlate);
+		return wardrobe;
+	}
 	public static void openMenu(Player p){
 		p.openInventory(getMainMenu());
 	}

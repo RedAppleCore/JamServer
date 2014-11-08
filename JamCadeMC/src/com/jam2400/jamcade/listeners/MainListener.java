@@ -77,9 +77,12 @@ public class MainListener implements Listener {
 		if (inventory.getName().equals(CompassMenu.getMainMenu().getName())){
 			// If the inventory clicked was the compass menu
 			if (clicked.getType() == Material.IRON_CHESTPLATE){
-				e.setCancelled(true);
+				Inventory wardrobe = CompassMenu.getWardrobeMenu();
+				p.openInventory(wardrobe);
+				e.setCancelled(true); // Make sure chestplate stays
 			}
 		}
+			
 	}
 	
 	@EventHandler
