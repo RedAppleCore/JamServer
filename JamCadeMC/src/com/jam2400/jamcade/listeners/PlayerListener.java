@@ -13,6 +13,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
+import com.jam2400.jamcade.items.Cosmetics;
 import com.jam2400.jamcade.items.Menu;
 import com.jam2400.jamcade.items.Wardrobe;
 
@@ -42,7 +43,7 @@ public class PlayerListener implements Listener{
 		
 		if (PlayerUtils.hasWardrobe(p)){
 			// Only if they can use the wardrobe shall we give them the item...
-			p.getInventory().setItem(1, Wardrobe.getItem());
+			p.getInventory().setItem(1, Cosmetics.getItem());
 		}
 		p.getInventory().setItem(4, Menu.getItem());
 	}

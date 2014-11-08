@@ -38,6 +38,8 @@ public class Listeners implements Listener{
 		if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)
 			if(p.getItemInHand().getType() == Material.IRON_CHESTPLATE){
 				WardrobeMenu.openWardrobe(p);
-		}
+			} else if(p.getItemInHand().getType() == Material.PUMPKIN){
+				CosmeticMenu.openMenu(p);
+			}
 	}
 }
