@@ -17,6 +17,12 @@ public class Listeners implements Listener{
 		ItemStack clicked = e.getCurrentItem(); // Item clicked
 		Inventory inventory = e.getInventory(); // Inventory clicked
 		
+		
+		if (inventory.getName().equals(CosmeticMenu.getCosmeticMenu().getName())){
+			if (clicked.getType() == Material.PUMPKIN){
+				// TODO Create hat menu
+			}
+		}
 		if (inventory.getName().equals(WardrobeMenu.getWardrobeMenu().getName())){
 			p.getInventory().setChestplate(clicked);
 			e.setCancelled(true);
