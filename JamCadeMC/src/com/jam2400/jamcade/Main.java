@@ -21,6 +21,7 @@ import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.MainUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
 import com.jam2400.jamcade.listeners.ChatListener;
+import com.jam2400.jamcade.listeners.MainListener;
 import com.jam2400.jamcade.listeners.PlayerListener;
 import com.jam2400.jamcade.menu.Listeners;
 
@@ -37,6 +38,7 @@ public static Main plugin;
 		pm.registerEvents(new PlayerListener(), this);
 		pm.registerEvents(new ChatListener(), this);
 		pm.registerEvents(new Listeners(), this);
+		pm.registerEvents(new MainListener(), this);
 	}
 	
 	@Override
