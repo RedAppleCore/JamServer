@@ -21,7 +21,7 @@ import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.MainUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
 import com.jam2400.jamcade.listeners.ChatListener;
-import com.jam2400.jamcade.listeners.MainListener;
+import com.jam2400.jamcade.listeners.PlayerListener;
 import com.jam2400.jamcade.menu.Listeners;
 
 import static com.jam2400.jamcade.Strings.*;
@@ -34,7 +34,7 @@ public static Main plugin;
 		getLogger().info(success + "JamCade is intiated!");
 		plugin = this;
 		PluginManager pm = Bukkit.getServer().getPluginManager();
-		pm.registerEvents(new MainListener(), this);
+		pm.registerEvents(new PlayerListener(), this);
 		pm.registerEvents(new ChatListener(), this);
 		pm.registerEvents(new Listeners(), this);
 	}
