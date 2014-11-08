@@ -22,6 +22,7 @@ import com.jam2400.jamcade.api.MainUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
 import com.jam2400.jamcade.listeners.ChatListener;
 import com.jam2400.jamcade.listeners.MainListener;
+import com.jam2400.jamcade.menu.Listeners;
 
 import static com.jam2400.jamcade.Strings.*;
 
@@ -35,6 +36,7 @@ public static Main plugin;
 		PluginManager pm = Bukkit.getServer().getPluginManager();
 		pm.registerEvents(new MainListener(), this);
 		pm.registerEvents(new ChatListener(), this);
+		pm.registerEvents(new Listeners(), this);
 	}
 	
 	@Override
