@@ -16,7 +16,7 @@ public class CompassMenu {
 	}
 	
 	public static Inventory getWardrobeMenu(){
-		Inventory wardrobe = Bukkit.createInventory(null, 40, ChatColor.GREEN + "Wardrobe:");
+		Inventory wardrobe = Bukkit.createInventory(null, 45, ChatColor.GREEN + "Wardrobe:");
 		ItemStack goldChestPlate = new ItemStack(Material.GOLD_CHESTPLATE);
 		wardrobe.setItem(0, goldChestPlate);
 		return wardrobe;

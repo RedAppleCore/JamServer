@@ -75,13 +75,18 @@ public class MainListener implements Listener {
 		ItemStack clicked = e.getCurrentItem(); // Item clicked
 		Inventory inventory = e.getInventory(); // Inventory clicked
 		if (inventory.getName().equals(CompassMenu.getMainMenu().getName())){
-			// If the inventory clicked was the compass menu
+			// If the inventory clicked was the main compass menu
 			if (clicked.getType() == Material.IRON_CHESTPLATE){
 				Inventory wardrobe = CompassMenu.getWardrobeMenu();
 				p.openInventory(wardrobe);
 				e.setCancelled(true); // Make sure chestplate stays
 			}
 		}
+		
+		if (inventory.getName().equals(CompassMenu.getWardrobeMenu().getName())){
+			p.getInventory().setChestplate(clicked);
+		}
+		
 			
 	}
 	
