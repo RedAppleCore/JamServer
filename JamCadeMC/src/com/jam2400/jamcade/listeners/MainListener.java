@@ -93,13 +93,13 @@ public class MainListener implements Listener {
 				Inventory wardrobe = CompassMenu.getWardrobeMenu();
 				p.openInventory(wardrobe);
 				e.setCancelled(true); // Make sure chestplate stays
-				p.closeInventory();
 			}
 		}
 		
 		if (inventory.getName().equals(CompassMenu.getWardrobeMenu().getName())){
 			p.getInventory().setChestplate(clicked);
 			e.setCancelled(true);
+			p.closeInventory();
 		}
 		
 			
@@ -109,8 +109,9 @@ public class MainListener implements Listener {
 	public void onInteract(PlayerInteractEvent e){
 		Player p = e.getPlayer();
 		// If it was right clicked, in air, or on a block and is an iron chestplate...open the menu!
-		if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK && p.getItemInHand().getType() == Material.IRON_CHESTPLATE){
-			CompassMenu.openWardrobe(p);
+		if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)
+			if(p.getItemInHand().getType() == Material.IRON_CHESTPLATE){
+				CompassMenu.openWardrobe(p);
 		}
 	}
 	
