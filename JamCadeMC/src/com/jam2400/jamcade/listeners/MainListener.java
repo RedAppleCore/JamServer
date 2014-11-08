@@ -94,8 +94,8 @@ public class MainListener implements Listener {
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e){
 		Player p = e.getPlayer();
-		if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK){
-			CompassMenu.openMenu(p);
+		if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK && p.getItemInHand().getType() == Material.IRON_CHESTPLATE){
+			CompassMenu.openWardrobe(p);
 		}
 	}
 	

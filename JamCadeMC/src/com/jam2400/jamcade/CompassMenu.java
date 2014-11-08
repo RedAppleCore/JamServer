@@ -16,9 +16,18 @@ public class CompassMenu {
 	}
 	
 	public static Inventory getWardrobeMenu(){
+		// Initiate wardrobe and give name etc.
 		Inventory wardrobe = Bukkit.createInventory(null, 45, ChatColor.GREEN + "Wardrobe:");
-		ItemStack goldChestPlate = new ItemStack(Material.GOLD_CHESTPLATE);
-		wardrobe.setItem(0, goldChestPlate);
+		
+		// Define the items
+		ItemStack goldChest = new ItemStack(Material.GOLD_CHESTPLATE);
+		ItemStack ironChest = new ItemStack(Material.IRON_CHESTPLATE);
+		ItemStack diamondChest = new ItemStack(Material.DIAMOND_CHESTPLATE);
+		
+		// Set items in the wardrobe
+		wardrobe.setItem(10, goldChest);
+		wardrobe.setItem(11, ironChest);
+		wardrobe.setItem(12, diamondChest);
 		return wardrobe;
 	}
 	public static void openMenu(Player p){
@@ -26,6 +35,6 @@ public class CompassMenu {
 	}
 	
 	public static void openWardrobe(Player p){
-		
+		p.openInventory(getWardrobeMenu());
 	}
 }
