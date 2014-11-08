@@ -16,6 +16,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 
 import com.jam2400.jamcade.CompassMenu;
@@ -27,25 +28,44 @@ public class MainListener implements Listener {
 	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e){
+		// Spawn location
 		Location spawn = new Location(e.getPlayer().getWorld(), 5, 38, 1);
 		
 		// When the user logs in...
 		Player p = e.getPlayer();
 		p.sendMessage(Strings.tag + "Welcome!");
 		
+		// Join messages...
 		e.setJoinMessage(null);
 		ChatUtils.announce(PlayerUtils.getDisplayName(p) + ChatColor.RED +  " joined.");
 		p.teleport(spawn);
 		
+		// Set gamemode accordingly...
 		if (p.isOp()){
 			p.setGameMode(GameMode.CREATIVE);
 		} else {
 			p.setGameMode(GameMode.ADVENTURE);
 		}
+		
+		// Give items
+		
+		// Items (will eventually put in seperate class
+		
+		// WARDROBE!
+		ItemStack wardrobe = new ItemStack(Material.IRON_CHESTPLATE);
+		// Set information
+		ItemMeta meta = wardrobe.getItemMeta();
+		meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Wardrobe");
+		// Assign information
+		wardrobe.setItemMeta(meta);
+		
+		// Give items
+		p.getInventory().addItem(wardrobe);
 	}
 	
 	@EventHandler
 	public void onLeave(PlayerQuitEvent e){
+		// Leave messages
 		Player p = e.getPlayer();
 		e.setQuitMessage(null);
 		ChatUtils.announce(PlayerUtils.getDisplayName(p) + ChatColor.RED + " left.");
@@ -80,6 +100,7 @@ public class MainListener implements Listener {
 				Inventory wardrobe = CompassMenu.getWardrobeMenu();
 				p.openInventory(wardrobe);
 				e.setCancelled(true); // Make sure chestplate stays
+				p.closeInventory();
 			}
 		}
 		
@@ -94,6 +115,7 @@ public class MainListener implements Listener {
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e){
 		Player p = e.getPlayer();
+		// If it was right clicked, in air, or on a block and is an iron chestplate...open the menu!
 		if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK && p.getItemInHand().getType() == Material.IRON_CHESTPLATE){
 			CompassMenu.openWardrobe(p);
 		}
