@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 		owner(ChatColor.YELLOW, "jamcade.owner", ChatColor.GREEN),
 		admin(ChatColor.RED, "jamcade.admin", ChatColor.WHITE),
 		member(ChatColor.DARK_GREEN, "jamcade.member", ChatColor.WHITE),
-		guest(ChatColor.GRAY, "jamcade.guest", ChatColor.GRAY);
+		regular(ChatColor.GRAY, "jamcade.regular", ChatColor.GRAY);
 		
 		private final ChatColor color;
 		private final String node;
@@ -32,16 +32,16 @@ import org.bukkit.entity.Player;
 		
 		
 		public static Rank getRank(Player p) {
-			if(p.hasPermission("jamcade.owner")) {
+			if(p.hasPermission(Rank.owner.getNode())) {
 				return Rank.owner;
 			}
-			else if (p.hasPermission("jamcade.admin")) {
+			else if (p.hasPermission(Rank.admin.getNode())) {
 				return Rank.admin;
 			}
-			else if (p.hasPermission("jamcade.member")) {
+			else if (p.hasPermission(Rank.member.getNode())) {
 				return Rank.member;
 			} else {
-				return Rank.guest;
+				return Rank.regular;
 			}
 		}
 	}
