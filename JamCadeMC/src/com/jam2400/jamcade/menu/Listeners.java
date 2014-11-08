@@ -10,6 +10,9 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import com.jam2400.jamcade.Strings;
+import com.jam2400.jamcade.api.PlayerUtils;
+
 public class Listeners implements Listener{
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent e){
@@ -52,7 +55,11 @@ public class Listeners implements Listener{
 			if(p.getItemInHand().getType() == Material.IRON_CHESTPLATE){
 				WardrobeMenu.openWardrobe(p);
 			} else if(p.getItemInHand().getType() == Material.PISTON_BASE){
+				if (PlayerUtils.hasWardrobe(p)){
 				CosmeticMenu.openMenu(p);
+				} else {
+					p.sendMessage(Strings.error("Only members and up can use cosmetics."));
+				}
 			}
 	}
 }
