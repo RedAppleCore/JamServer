@@ -40,7 +40,7 @@ public class MainListener implements Listener {
 		p.teleport(spawn);
 		
 		// Set gamemode accordingly...
-		if (p.isOp()){
+		if (PlayerUtils.isOwner(p)){
 			p.setGameMode(GameMode.CREATIVE);
 		} else {
 			p.setGameMode(GameMode.ADVENTURE);

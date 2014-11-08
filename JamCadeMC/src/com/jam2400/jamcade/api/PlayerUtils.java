@@ -24,4 +24,8 @@ public class PlayerUtils {
 		if (p.hasPermission("jamcade.wardrobe")){return true;}
 		else {return false;}
 	}
+	public static boolean isOwner(Player p){
+		if (p.hasPermission("jamcade.owner")){return true;}
+		else {return false;}
+	}
 }
