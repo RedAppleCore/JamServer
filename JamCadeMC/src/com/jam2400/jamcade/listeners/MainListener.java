@@ -55,14 +55,23 @@ public class MainListener implements Listener {
 		// WARDROBE!
 		ItemStack wardrobe = new ItemStack(Material.IRON_CHESTPLATE);
 		// Set information
-		ItemMeta meta = wardrobe.getItemMeta();
-		meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Wardrobe");
+		ItemMeta wardrobemeta = wardrobe.getItemMeta();
+		wardrobemeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Wardrobe");
 		// Assign information
-		wardrobe.setItemMeta(meta);
+		wardrobe.setItemMeta(wardrobemeta);
+		
+		// MAIN MENU!
+		ItemStack menu = new ItemStack(Material.NETHER_STAR);
+		//Set info
+		ItemMeta menumeta = menu.getItemMeta();
+		menumeta.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Server Selector");
+		// Assign
+		menu.setItemMeta(menumeta);
 		
 		// Clear inventory and give items
 		p.getInventory().clear();
 		p.getInventory().setItem(1, wardrobe);
+		p.getInventory().setItem(4, menu);
 	}
 	
 	@EventHandler
