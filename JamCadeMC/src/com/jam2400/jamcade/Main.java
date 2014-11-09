@@ -32,6 +32,7 @@ public class Main extends JavaPlugin {
 public static Main plugin;
 	@Override
 	public void onEnable(){
+		// don't be derogative please
 		getLogger().info(success + "JamCade is intiated!");
 		plugin = this;
 		PluginManager pm = Bukkit.getServer().getPluginManager();
