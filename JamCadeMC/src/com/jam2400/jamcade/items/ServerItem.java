@@ -5,25 +5,30 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public enum HotbarItem {
+public enum ServerItem {
 	
-	menu(ChatColor.RED + "" + ChatColor.BOLD  + "Server Options", Material.NETHER_STAR, 4),
-	cosmetic(ChatColor.YELLOW + "" + ChatColor.BOLD + "Cosmetics", Material.PISTON_BASE, 1),
-	book(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Server Info", Material.BOOK, 7);
+	on(ChatColor.GREEN + "Players on", Material.REDSTONE_TORCH_ON, 1, ChatColor.GRAY + "Turn ALL players on."),
+	off(ChatColor.RED + "Players off", Material.REDSTONE_TORCH_OFF, 2, ChatColor.GRAY + "Turn ALL players off.");
 	
 	private final String displayName;
 	private final Material material;
 	private final int slot;
+	private final String lore;
 	
-	HotbarItem(String displayName, Material material, int slot){
+	ServerItem(String displayName, Material material, int slot, String lore){
 		this.displayName = displayName;
 		this.material = material;
 		this.slot = slot;
+		this.lore = lore;
 		
 	}
 	
 	public String getDisplayName(){
 		return displayName;
+	}
+	
+	public String getLore(){
+		return lore;
 	}
 	
 	public Material getMaterial(){
@@ -33,6 +38,7 @@ public enum HotbarItem {
 	public int getSlot(){
 		return slot;
 	}
+	
 	
 	public ItemStack getItem(){
 		ItemStack item = new ItemStack(getMaterial());

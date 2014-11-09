@@ -60,6 +60,8 @@ public class Listeners implements Listener{
 				} else {
 					p.sendMessage(Strings.error("Only members and up can use cosmetics."));
 				}
+			} else if(p.getItemInHand().getType() == Material.NETHER_STAR){
+				ServerMenu.openMenu(p);
 			}
 	}
 }
