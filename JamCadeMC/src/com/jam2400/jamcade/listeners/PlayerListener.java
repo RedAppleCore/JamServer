@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
@@ -76,15 +77,9 @@ public class PlayerListener implements Listener{
 	}
 	
 	@EventHandler
-	public void onFlightAttempt(PlayerToggleFlightEvent event) {
-	 
-	    if(!event.isFlying() && event.getPlayer().getGameMode() != GameMode.CREATIVE) {
-	 
-	        event.getPlayer().setVelocity(event.getPlayer().getVelocity().add(new Vector(0,0.25,0)));
-	        event.setCancelled(true);
-	 
-	    }
-	 
+	public void onDamage(EntityDamageEvent e){
+		e.setCancelled(true);
 	}
+	
 	
 }

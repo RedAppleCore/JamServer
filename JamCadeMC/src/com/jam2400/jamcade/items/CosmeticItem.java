@@ -5,20 +5,18 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public enum Item {
-	// Wardrobe
-	// Main Cosmetics Menu
-	hats(ChatColor.GREEN + "Hats!", Material.PUMPKIN),
-	wardrobe(ChatColor.DARK_RED + "Wardrobe!", Material.IRON_CHESTPLATE),
-	back(ChatColor.BLUE + "Go back!", Material.ARROW);
-	
+public enum CosmeticItem {
+	hats(ChatColor.GREEN + "Hats!", Material.PUMPKIN, 1),
+	wardrobe(ChatColor.RED + "Wardrobe!", Material.IRON_CHESTPLATE, 2);
 	
 	private final String displayName;
 	private final Material material;
+	private final int slot;
 	
-	Item(String displayName, Material material){
+	CosmeticItem(String displayName, Material material, int slot){
 		this.displayName = displayName;
 		this.material = material;
+		this.slot = slot;
 		
 	}
 	
@@ -30,6 +28,10 @@ public enum Item {
 		return material;
 	}
 	
+	public int getSlot(){
+		return slot;
+	}
+	
 	public ItemStack getItem(){
 		ItemStack item = new ItemStack(getMaterial());
 		ItemMeta meta = item.getItemMeta();
@@ -39,3 +41,4 @@ public enum Item {
 		return item;
 	}
 }
+

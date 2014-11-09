@@ -8,7 +8,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 public enum HotbarItem {
 	
 	menu(ChatColor.RED + "" + ChatColor.BOLD  + "Server Selector", Material.NETHER_STAR, 4),
-	cosmetic(ChatColor.YELLOW + "" + ChatColor.BOLD + "Cosmetics", Material.PISTON_BASE, 1);
+	cosmetic(ChatColor.YELLOW + "" + ChatColor.BOLD + "Cosmetics", Material.PISTON_BASE, 1),
+	book(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Server Info", Material.BOOK, 7);
+	
 	private final String displayName;
 	private final Material material;
 	private final int slot;

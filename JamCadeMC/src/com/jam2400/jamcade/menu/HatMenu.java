@@ -11,6 +11,7 @@ import com.jam2400.jamcade.items.HatItem;
 public class HatMenu {
 	public static Inventory getHatMenu(){
 		Inventory hat = Bukkit.createInventory(null, 9, ChatColor.LIGHT_PURPLE + "Hats:");
+		// Iterate over each enum item and add to inventory.
 		for(HatItem i : HatItem.values()){
 			int slot = i.getSlot();
 			ItemStack item = i.getItem();
