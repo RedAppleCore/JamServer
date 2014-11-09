@@ -4,15 +4,18 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import com.jam2400.jamcade.items.HatItem;
 
 public class HatMenu {
 	public static Inventory getHatMenu(){
 		Inventory hat = Bukkit.createInventory(null, 9, ChatColor.LIGHT_PURPLE + "Hats:");
-		hat.setItem(1, HatItem.tnt.getItem());
-		hat.setItem(2, HatItem.melon.getItem());
-		hat.setItem(3, HatItem.anvil.getItem());
+		for(HatItem i : HatItem.values()){
+			int slot = i.getSlot();
+			ItemStack item = i.getItem();
+			hat.setItem(slot, item);
+		}
 		return hat;
 	}
 	public static void openMenu(Player p){
