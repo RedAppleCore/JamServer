@@ -9,7 +9,8 @@ public enum HatItem {
 	tnt(ChatColor.RED + "TNT!", Material.TNT, 1),
 	melon(ChatColor.DARK_GREEN + "MELONE!", Material.MELON_BLOCK, 2),
 	anvil(ChatColor.DARK_GRAY + "Anvil", Material.ANVIL, 3),
-	wall(ChatColor.GRAY + "Cobblestone Wall", Material.COBBLE_WALL, 4);
+	wall(ChatColor.GRAY + "Cobblestone Wall", Material.COBBLE_WALL, 4),
+	chest(ChatColor.GOLD + "Chest", Material.CHEST, 5);
 	
 	private final String displayName;
 	private final Material material;
