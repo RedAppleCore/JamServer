@@ -11,13 +11,12 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
-import com.jam2400.jamcade.items.Cosmetics;
-import com.jam2400.jamcade.items.Menu;
-import com.jam2400.jamcade.items.Wardrobe;
+import com.jam2400.jamcade.items.HotbarItem;
 
 public class PlayerListener implements Listener{
 	@EventHandler
@@ -43,11 +42,11 @@ public class PlayerListener implements Listener{
 		// Clear inventory and give items
 		p.getInventory().clear();
 		
-		if (PlayerUtils.hasWardrobe(p)){
-			// Only if they can use the wardrobe shall we give them the item...
-			p.getInventory().setItem(1, Cosmetics.getItem());
+		for(HotbarItem i : HotbarItem.values()){
+			int slot = i.getSlot();
+			ItemStack item = i.getItem();
+			p.getInventory().setItem(slot, item);
 		}
-		p.getInventory().setItem(4, Menu.getItem());
 	}
 	
 	@EventHandler

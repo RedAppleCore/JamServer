@@ -5,6 +5,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
+import com.jam2400.jamcade.items.Item;
+
 public class WardrobeMenu {
 	
 	public static Inventory getWardrobeMenu(){

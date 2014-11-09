@@ -5,6 +5,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
+import com.jam2400.jamcade.items.Item;
+
 public class CosmeticMenu {
 	public static Inventory getCosmeticMenu(){
 		Inventory cosmetics = Bukkit.createInventory(null, 9, ChatColor.DARK_PURPLE + "Cosmetics:");
