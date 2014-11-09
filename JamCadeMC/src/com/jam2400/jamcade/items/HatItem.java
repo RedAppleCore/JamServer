@@ -8,7 +8,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 public enum HatItem {
 	tnt(ChatColor.RED + "TNT!", Material.TNT, 1),
 	melon(ChatColor.DARK_GREEN + "MELONE!", Material.MELON_BLOCK, 2),
-	anvil(ChatColor.DARK_GRAY + "Anvil", Material.ANVIL, 3);
+	anvil(ChatColor.DARK_GRAY + "Anvil", Material.ANVIL, 3),
+	wall(ChatColor.GRAY + "Cobblestone Wall", Material.COBBLE_WALL, 4);
 	
 	private final String displayName;
 	private final Material material;
