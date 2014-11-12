@@ -7,7 +7,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public enum CosmeticItem {
 	hats(ChatColor.GREEN + "Hats!", Material.PUMPKIN, 1),
-	wardrobe(ChatColor.RED + "Wardrobe!", Material.IRON_CHESTPLATE, 2);
+	wardrobe(ChatColor.RED + "Wardrobe!", Material.IRON_CHESTPLATE, 2),
+	particles(ChatColor.RED + "Particle Effects", Material.FIRE, 3);
 	
 	private final String displayName;
 	private final Material material;
