@@ -21,7 +21,8 @@ public class Listeners implements Listener{
 		Inventory inventory = e.getInventory(); // Inventory clicked
 		
 		
-		if (inventory.getName().equals(CosmeticMenu.getCosmeticMenu().getName())){
+		// Cosmetics Menu
+		if (inventory.getName().equals(CosmeticMenu.getCosmeticMenu().getName())){ 
 			if (clicked.getType() == Material.PUMPKIN){
 				HatMenu.openMenu(p);
 				e.setCancelled(true);
@@ -30,11 +31,15 @@ public class Listeners implements Listener{
 				e.setCancelled(true);
 			}
 		}
+		
+		// Wardrobe Menu
 		else if (inventory.getName().equals(WardrobeMenu.getWardrobeMenu().getName())){
 			p.getInventory().setChestplate(clicked);
 			e.setCancelled(true);
 			p.closeInventory();
 		}
+		
+		// Hat Menu
 		else if (inventory.getName().equals(HatMenu.getHatMenu().getName())){
 			if (clicked.getType() == Material.ARROW){
 				CosmeticMenu.openMenu(p);
