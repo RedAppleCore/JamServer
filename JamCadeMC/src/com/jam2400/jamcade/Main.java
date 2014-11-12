@@ -159,11 +159,11 @@ public static Main plugin;
 			return true;
 		}
 		else if (cmd.getName().equalsIgnoreCase("staff")){
-			if (MainUtils.getOnlineStaff().size() == 0){
+			if (MainUtils.getOnlineStaff().size() == 0){ // If no staff
 				sender.sendMessage(error("There are no staff currently online."));
-			} else {
+			} else { // If there are staff
 			sender.sendMessage(ChatColor.GRAY + "The following staff are online.");
-			for (Player p : MainUtils.getOnlineStaff()){
+			for (Player p : MainUtils.getOnlineStaff()){ // print them out on each line
 				sender.sendMessage(" - " + PlayerUtils.getDisplayName(p));
 			}
 			}
