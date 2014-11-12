@@ -12,7 +12,7 @@ public class WardrobeMenu {
 	
 	public static Inventory getWardrobeMenu(){
 		// Initiate wardrobe and give name etc.
-		Inventory wardrobe = Bukkit.createInventory(null, 9, ChatColor.GREEN + "Wardrobe:");
+		Inventory wardrobe = Bukkit.createInventory(null, 45, ChatColor.GREEN + "Wardrobe:");
 		
 		// Set items in the wardrobe
 		for(WardrobeItem i : WardrobeItem.values()){

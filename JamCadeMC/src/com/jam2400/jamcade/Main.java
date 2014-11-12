@@ -86,11 +86,9 @@ public static Main plugin;
 		}
 		else if (cmd.getName().equalsIgnoreCase("announce")){
 			Player p = (Player) sender;
-			if(args.length == 0){
+			if(args.length == 0){ // If no message specified
 				p.sendMessage(error("Specify a message to announce."));
-			} else if (args.length < 1){
-				return false;
-			} else {
+			} else { // if there are the right amount of arguments use string builder to collect all args to make one string
 				StringBuilder message = new StringBuilder("");
 			    for (String part : args) {
 			        if (!message.toString().equals(""))
@@ -98,54 +96,52 @@ public static Main plugin;
 			 
 			        message.append(part);
 			    }
-			    ChatUtils.announce(message.toString());
+			    ChatUtils.announce(message.toString()); // finally call announce method
 			}
 			return true;
 		}
 		else if (cmd.getName().equalsIgnoreCase("warn")){
 			Player p = (Player) sender;
-			if(args.length == 0){
-				// this means no player has been specified...
+			if(args.length == 0){ // if no player
 				p.sendMessage(error("You have to specify a player to send."));
-			} else if(args.length == 1) {
+			} else if(args.length == 1) { // if no reason
 				p.sendMessage(error("Give a reason..."));
 			}
-			else if (args.length == 2){
-				if(Bukkit.getPlayer(args[0]) == null){
+			else if (args.length == 2){ // if the right amount of arguments 
+				if(Bukkit.getPlayer(args[0]) == null){ // non existent player, or offline
 					p.sendMessage(error("There has been an error, or this player is offline."));
 				} else {
 					Player target = Bukkit.getPlayer(args[0]);
-					warn(target, args[1]);
+					warn(target, args[1]); // finally call the 'warn' method
 				}
 			}
 			return true;
 		}
 		else if (cmd.getName().equalsIgnoreCase("kick")){
 			Player p = (Player) sender;
-			if(args.length == 0){
+			if(args.length == 0){ // if no player specified
 				p.sendMessage(error("You have to specify a player to send."));
-			} else if(args.length == 1){
+			} else if(args.length == 1){ // if no reason
 				p.sendMessage(error("Give a reason..."));
-			} else {
+			} else { // if right amount of arguments
 				Player target = Bukkit.getPlayer(args[0]);
-				kick(target, args[1], sender);
+				kick(target, args[1], sender); // call 'kick' method
 			}
 		}
 		else if (cmd.getName().equalsIgnoreCase("m")) {
 			Player player = (Player) sender;
-			if(args.length < 1) {
+			if(args.length < 1) { // if no player specified
 				player.sendMessage(error("You need to specify a player."));
 			}
-			else if(args.length < 2) {
+			else if(args.length < 2) { // if no message
 				player.sendMessage(error("You need a message to send to " + args[0]));
 			}
-			else {
+			else { // if right amount of args
 				Player target = Bukkit.getPlayer(args[0]);
-				
-				if (target != null && target.isOnline() == true) {
-					StringBuilder sb = new StringBuilder("");
+				if (target != null && target.isOnline() == true) { // checks if player is valid
+					StringBuilder sb = new StringBuilder(""); // use string builder
 					boolean first = true;
-					for(int i = 1; i<args.length;i++){
+					for(int i = 1; i<args.length;i++){ // for every argument
 						if(!first){
 							sb.append(" ");
 						}
@@ -157,7 +153,7 @@ public static Main plugin;
 				target.sendMessage(ChatColor.DARK_GRAY + "[" + sender.getName() + " says] " + ChatColor.GREEN + sb.toString());
 				}
 				else {
-				player.sendMessage(error("This player is not online!"));	
+				player.sendMessage(error("This player is not online!"));// player not online, send error
 				}
 			}
 			return true;
@@ -184,31 +180,6 @@ public static Main plugin;
 			horse.setPassenger(p);
 			
 			return true;
-		}
-		else if (cmd.getName().equalsIgnoreCase("s")){
-			Player p = (Player) sender;
-			if (args.length == 0){
-				ArrayList<Player> sc = MainUtils.getStaffChatMembers();
-				if (sc.contains(p)) {
-					sc.remove(p);
-					p.sendMessage(success("Disabled staff chat notifications."));
-				} else {
-					sc.add(p);
-					p.sendMessage(success("Enabled staff chat notifications."));
-				}
-				return true;
-			} else {
-			StringBuilder message = new StringBuilder("");
-		    for (String part : args) {
-		        if (!message.toString().equals(""))
-		            message.append(" ");
-		 
-		        message.append(part);
-		    }   
-		    String msg = message.toString();
-			ChatUtils.staffMsg(msg, p);
-			return true;
-			}
 		}
 		return false; 
 	}
