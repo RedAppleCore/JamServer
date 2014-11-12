@@ -34,11 +34,15 @@ public enum CosmeticItem {
 	}
 	
 	public ItemStack getItem(){
+		// Declare new ItemStack with material info
 		ItemStack item = new ItemStack(getMaterial());
+		// Declare meta
 		ItemMeta meta = item.getItemMeta();
+		// Set display name
 		meta.setDisplayName(getDisplayName());
+		// Set meta to item
 		item.setItemMeta(meta);
-		
+		// Return the itemstack for use in inventories
 		return item;
 	}
 }
