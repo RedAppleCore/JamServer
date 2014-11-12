@@ -34,7 +34,10 @@ public class Listeners implements Listener{
 		
 		// Wardrobe Menu
 		else if (inventory.getName().equals(WardrobeMenu.getWardrobeMenu().getName())){
+			p.getInventory().setHelmet(clicked);
 			p.getInventory().setChestplate(clicked);
+			p.getInventory().setLeggings(clicked);
+			p.getInventory().setBoots(clicked);
 			e.setCancelled(true);
 			p.closeInventory();
 		}

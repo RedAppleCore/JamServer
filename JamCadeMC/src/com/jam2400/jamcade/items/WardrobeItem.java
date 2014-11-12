@@ -6,10 +6,19 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public enum WardrobeItem {
-	leatherChest(ChatColor.WHITE + "Leather Chestplate", Material.LEATHER_CHESTPLATE, 1),
-	goldChest(ChatColor.GOLD + "Golden Chestplate", Material.GOLD_CHESTPLATE, 2),
-	ironChest(ChatColor.GRAY + "Iron Chestplate", Material.IRON_CHESTPLATE, 3),
-	diamondChest(ChatColor.AQUA + "Diamond Chestplate", Material.DIAMOND_CHESTPLATE, 4);
+	//Hats
+	leatherHat(ChatColor.WHITE + "Leather Helmet", Material.LEATHER_HELMET, 11),
+	goldHat(ChatColor.GOLD + "Golden Helmet", Material.GOLD_HELMET, 12),
+	ironHat(ChatColor.GRAY + "Iron Helmet", Material.IRON_HELMET, 13),
+	diamondHat(ChatColor.AQUA + "Diamond Helmet", Material.DIAMOND_HELMET, 14),
+	// Chests
+	leatherChest(ChatColor.WHITE + "Leather Chestplate", Material.LEATHER_CHESTPLATE, 20),
+	goldChest(ChatColor.GOLD + "Golden Chestplate", Material.GOLD_CHESTPLATE, 21),
+	ironChest(ChatColor.GRAY + "Iron Chestplate", Material.IRON_CHESTPLATE, 22),
+	diamondChest(ChatColor.AQUA + "Diamond Chestplate", Material.DIAMOND_CHESTPLATE, 23);
+	// Leggings
+	
+	// Boots
 	
 	private final String displayName;
 	private final Material material;
