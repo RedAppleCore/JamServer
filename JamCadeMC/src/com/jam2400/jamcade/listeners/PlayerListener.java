@@ -37,7 +37,7 @@ public class PlayerListener implements Listener{
 			p.setGameMode(GameMode.ADVENTURE);
 		}
 		
-		// Clear inventory and give items
+		// Clear inventory and give items.
 		p.getInventory().clear();
 		
 		for(HotbarItem i : HotbarItem.values()){
