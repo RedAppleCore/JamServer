@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
+import com.jam2400.jamcade.api.UUIDFetcher;
 import com.jam2400.jamcade.items.HotbarItem;
 
 public class PlayerListener implements Listener{
@@ -45,6 +46,19 @@ public class PlayerListener implements Listener{
 			ItemStack item = i.getItem();
 			p.getInventory().setItem(slot, item);
 		}
+		
+		// TODO Database stuff
+		String ip = p.getAddress().getHostString();
+		// if it's different to db record, replace with new ip
+		// just leave if it's the same
+		String uuid;
+		try {
+			uuid = UUIDFetcher.getUUIDOf(e.getPlayer().getName()).toString();
+			p.sendMessage("Your UUID is: " + uuid);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		
 	}
 	
 	@EventHandler
