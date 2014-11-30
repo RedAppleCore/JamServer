@@ -22,12 +22,16 @@ import com.jam2400.jamcade.listeners.ChatListener;
 import com.jam2400.jamcade.listeners.MainListener;
 import com.jam2400.jamcade.listeners.PlayerListener;
 import com.jam2400.jamcade.menu.Listeners;
+import com.jam2400.jamcade.mongo.DatabaseManager;
 
 import static com.jam2400.jamcade.Strings.*;
 
 public class Main extends JavaPlugin {
 	
 public static Main plugin;
+	
+	DatabaseManager db = new DatabaseManager();
+
 	@Override
 	public void onEnable(){
 		getLogger().info(success + "JamCade is intiated!");
@@ -37,6 +41,8 @@ public static Main plugin;
 		pm.registerEvents(new ChatListener(), this);
 		pm.registerEvents(new Listeners(), this);
 		pm.registerEvents(new MainListener(), this);
+		
+		DatabaseManager.connect("localhost", 27017);
 	}
 	
 	@Override
