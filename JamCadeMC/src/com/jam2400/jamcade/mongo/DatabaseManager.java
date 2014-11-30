@@ -15,7 +15,7 @@ private static DB db;
 private static DBCollection users;
 
  
-public static void connect(String host, int port) {
+public void connect(String host, int port) {
 	try {
 		mongoClient = new MongoClient(host, port);
 	} catch (Exception e) {
@@ -23,6 +23,10 @@ public static void connect(String host, int port) {
 	}
 	db = getMongoClient().getDB("test");
 	users = getMongoDB().getCollection("users");
+}
+
+public void close(){
+	mongoClient.close();
 }
  
 public static void createNewData() {

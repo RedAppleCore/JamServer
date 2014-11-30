@@ -42,13 +42,15 @@ public static Main plugin;
 		pm.registerEvents(new Listeners(), this);
 		pm.registerEvents(new MainListener(), this);
 		
-		DatabaseManager.connect("localhost", 27017);
+		db.connect("localhost", 27017);
+		db.close();
 	}
 	
 	@Override
 	public void onDisable(){
 		getLogger().info("JamCade disabled.");
 		plugin = null;
+		db.close();
 	}
 	public static Plugin getPlugin(){
 		return plugin;
