@@ -22,15 +22,12 @@ import com.jam2400.jamcade.listeners.ChatListener;
 import com.jam2400.jamcade.listeners.MainListener;
 import com.jam2400.jamcade.listeners.PlayerListener;
 import com.jam2400.jamcade.menu.Listeners;
-import com.jam2400.jamcade.mongo.DatabaseManager;
 
 import static com.jam2400.jamcade.Strings.*;
 
 public class Main extends JavaPlugin {
 	
 public static Main plugin;
-	
-	DatabaseManager db = new DatabaseManager();
 
 	@Override
 	public void onEnable(){
@@ -42,15 +39,12 @@ public static Main plugin;
 		pm.registerEvents(new Listeners(), this);
 		pm.registerEvents(new MainListener(), this);
 		
-		db.connect("localhost", 27017);
-		db.close();
 	}
 	
 	@Override
 	public void onDisable(){
 		getLogger().info("JamCade disabled.");
 		plugin = null;
-		db.close();
 	}
 	public static Plugin getPlugin(){
 		return plugin;
