@@ -14,7 +14,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
-import com.jam2400.jamcade.api.UUIDFetcher;
 import com.jam2400.jamcade.items.HotbarItem;
 
 public class PlayerListener implements Listener{
