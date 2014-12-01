@@ -47,18 +47,6 @@ public class PlayerListener implements Listener{
 			p.getInventory().setItem(slot, item);
 		}
 		
-		// TODO Database stuff
-		//String ip = p.getAddress().getHostString();
-		// if it's different to db record, replace with new ip
-		// just leave if it's the same
-		String uuid;
-		try {
-			uuid = UUIDFetcher.getUUIDOf(e.getPlayer().getName()).toString();
-			p.sendMessage("Your UUID is: " + uuid);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		
 	}
 	
 	@EventHandler
