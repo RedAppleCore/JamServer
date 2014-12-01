@@ -34,7 +34,7 @@ public static Main plugin;
 
 	@Override
 	public void onEnable(){
-		getLogger().info(success + "JamCade is intiated!");
+		getLogger().info(SUCCESS + "JamCade is intiated!");
 		plugin = this;
 		PluginManager pm = Bukkit.getServer().getPluginManager();
 		pm.registerEvents(new PlayerListener(), this);
@@ -64,7 +64,7 @@ public static Main plugin;
 				// No player specified. Let's heal the sender!
 				// Wait! What if the console sent this...? Can't do that nooooo...
 				if(!(sender instanceof Player)){
-					sender.sendMessage(playerOnly);
+					sender.sendMessage(PLAYER_ONLY);
 				} else {
 					Player p = (Player) sender;
 					heal(p);
@@ -82,7 +82,7 @@ public static Main plugin;
 					p.sendMessage(success("Healed the player!"));
 					heal(target);
 					String healer = p.getName();
-					target.sendMessage(tag + "You were healed by " + ChatColor.GREEN 
+					target.sendMessage(TAG + "You were healed by " + ChatColor.GREEN 
 							+ healer + ChatColor.GRAY 
 							+ ", be sure to thank them!");
 				}
@@ -190,7 +190,7 @@ public static Main plugin;
 		return false; 
 	}
 	public static void warn(Player p, String reason){
-		p.sendMessage(tag + "You were warned for '" + ChatColor.GOLD + reason + ChatColor.GRAY + "' - continuing will result in a ban!");
+		p.sendMessage(TAG + "You were warned for '" + ChatColor.GOLD + reason + ChatColor.GRAY + "' - continuing will result in a ban!");
 	}
 	public static void heal(Player p){
 		p.setHealth(20D);

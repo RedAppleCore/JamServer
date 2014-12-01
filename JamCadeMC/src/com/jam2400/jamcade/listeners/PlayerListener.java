@@ -48,7 +48,7 @@ public class PlayerListener implements Listener{
 		}
 		
 		// TODO Database stuff
-		String ip = p.getAddress().getHostString();
+		//String ip = p.getAddress().getHostString();
 		// if it's different to db record, replace with new ip
 		// just leave if it's the same
 		String uuid;
