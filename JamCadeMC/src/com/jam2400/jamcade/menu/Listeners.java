@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import com.jam2400.jamcade.Strings;
 import com.jam2400.jamcade.api.PlayerUtils;
 
-public class Listeners implements Listener{
+public class Listeners implements Listener {
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent e){
 		Player p = (Player) e.getWhoClicked(); // Player who clicked
@@ -69,7 +69,7 @@ public class Listeners implements Listener{
 					p.sendMessage(Strings.error("Only members and up can use cosmetics."));
 				}
 			} else if(p.getItemInHand().getType() == Material.NETHER_STAR){
-				ServerMenu.openMenu(p);
+				p.openInventory(ServerMenu.getMenu());
 			}
 	}
 }

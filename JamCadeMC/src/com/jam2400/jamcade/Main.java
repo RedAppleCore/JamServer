@@ -14,7 +14,6 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
-
 import com.jam2400.jamcade.api.ChatUtils;
 import com.jam2400.jamcade.api.MainUtils;
 import com.jam2400.jamcade.api.PlayerUtils;
